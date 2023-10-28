@@ -4,7 +4,7 @@ This repository holds scripts and snippets I use for building [MoonLite DEB pack
 
 You can run `all.sh` script to perform the complete chain of operations, or run the script individially:
 
-1) `build/build.sh` is the primary builder that fetches [MoonLite source]https://github.com/igor-moonlite/moonlite and converts it into a complete package. 
+1) `build/build.sh` is the primary builder that fetches [MoonLite source](https://github.com/igor-moonlite/moonlite) and converts it into a complete package. 
 
 Among other things, the builder adjusts language constants of IFrame App module to turn it into Calendar, adds a number of additional visual element to webmail templates (widgets & iframes) and removes unnecessary content (e.g. any language except for English and Russian). 
 
