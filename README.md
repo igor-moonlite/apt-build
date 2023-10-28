@@ -6,7 +6,7 @@ You can run `all.sh` script to perform the complete chain of operations, or run 
 
 1) `build/build.sh` is the primary builder that fetches [MoonLite source](https://github.com/igor-moonlite/moonlite) and converts it into a complete package. 
 
-Among other things, the builder adjusts language constants of IFrame App module to turn it into Calendar, adds a number of additional visual element to webmail templates (widgets & iframes) and removes unnecessary content (e.g. any language except for English and Russian). 
+Among other things, the builder adjusts language constants of IFrame App module to turn it into Calendar, adds a number of additional visual elements to webmail templates (widgets & iframes) and removes unnecessary content (e.g. any language except for English and Russian). 
 
 The `content` directory is copied into the package AS IS. There is also `moonlite.php` script that is invoked when the package is installed via APT, it performs initial configuration (database setup, features tweaking, adding mailserver entry, placing "Powered By" text, etc.).
 
