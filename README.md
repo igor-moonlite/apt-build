@@ -2,7 +2,7 @@
 
 This repository holds scripts and snippets I use for building [MoonLite DEB package and APT repository](https://github.com/igor-moonlite/moonlite).
 
-You can run `all.sh` script to perform the complete chain of operations, or run the script individially:
+You can run `all.sh` script to perform the complete chain of operations, or run each script individially:
 
 1) `build/build.sh` is the primary builder that fetches [MoonLite source](https://github.com/igor-moonlite/moonlite) and converts it into a complete package. 
 
