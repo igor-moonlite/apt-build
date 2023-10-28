@@ -1,0 +1,26 @@
+<html><head><title>T I M E</title>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone.min.js"></script>
+<script type="text/javascript">
+var tmptime = 0; 
+function showtmp() {
+	var showtime = (tmptime - 1)*60;
+	var hh = parseInt(showtime / 3600) % 24;
+	var mm = '0' + parseInt(showtime / 60) % 60; 
+	mm = mm.substr(-2);
+	document.getElementById("clock-tmp").innerHTML = "TMP<br />"+hh+":"+mm;
+	tmptime++;
+}
+
+function mytime() {
+	$.get( "/mlite/content/time-tmp.php", function( data ) {
+		tmptime=data; showtmp();
+		setInterval(showtmp, 10000);
+	});
+}
+</script></head><body onload="mytime();" style="color: #DAA520; background-color: transparent; margin: 0px; padding: 0px;">
+<div id='clock-tmp' style="margin: 0px; font-weight: bold; white-space: pre;font-size: 16px; font-family: Helvetica, Tahoma, Arial, sans-serif;">&nbsp;</div>
+</body></html>
+
+

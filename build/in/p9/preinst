@@ -1,0 +1,14 @@
+#!/bin/bash
+if [ "$1" = "upgrade" ] && [ "$2" != "" ]; then
+    if [ -d /tmp/moonlitedata ]; then
+	rm -rf /tmp/moonlitedata
+    fi
+    mkdir /tmp/moonlitedata
+    mv /usr/share/moonlite/data/* /tmp/moonlitedata
+
+    if [ -d /tmp/moonlitecontent ]; then
+	rm -rf /tmp/moonlitecontent
+    fi
+    mkdir /tmp/moonlitecontent
+    mv /usr/share/moonlite/content/* /tmp/moonlitecontent
+fi
