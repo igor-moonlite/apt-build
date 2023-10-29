@@ -178,6 +178,91 @@ for ($i = $divs->length; --$i >= 0;) {
         $img->appendChild($attr);
         $div->appendChild($img);
     }
+
+    if ($div->getAttribute('class') == 'languages') {
+        $attr = $html->createAttribute('style');
+        $attr->value = 'top: -5px; right: 30px;';
+	$div->appendChild($attr);
+
+        $span0 = $html->createElement('span');
+        $attr = $html->createAttribute('style');
+        $attr->value = 'height:36px;';
+        $span0->appendChild($attr);
+
+        $span1 = $html->createElement('span');
+        $attr = $html->createAttribute('style');
+        $attr->value = 'padding-right: 12px; padding-left: 12px; width:179px; height:36px; border: 0;';
+        $span1->appendChild($attr);
+
+        $frame1 = $html->createElement('iframe');
+        $attr = $html->createAttribute('src');
+        $attr->value = '/mlite/content/time.html';
+        $frame1->appendChild($attr);
+        $attr = $html->createAttribute('scrolling');
+        $attr->value = 'no';
+        $frame1->appendChild($attr);
+        $attr = $html->createAttribute('width');
+        $attr->value = '179';
+        $frame1->appendChild($attr);
+        $attr = $html->createAttribute('height');
+        $attr->value = '36';
+        $frame1->appendChild($attr);
+        $attr = $html->createAttribute('style');
+        $attr->value = 'border: 0;';
+        $frame1->appendChild($attr);
+        $span1->appendChild($frame1);
+
+        $span2 = $html->createElement('span');
+        $attr = $html->createAttribute('style');
+        $attr->value = 'padding-right: 12px; padding-left: 12px; width:50px; height:36px; border: 0;';
+        $span2->appendChild($attr);
+
+        $frame2 = $html->createElement('iframe');
+        $attr = $html->createAttribute('src');
+        $attr->value = '/mlite/content/time-tmp.html';
+        $frame2->appendChild($attr);
+        $attr = $html->createAttribute('scrolling');
+        $attr->value = 'no';
+        $frame2->appendChild($attr);
+        $attr = $html->createAttribute('width');
+        $attr->value = '50';
+        $frame2->appendChild($attr);
+        $attr = $html->createAttribute('height');
+        $attr->value = '36';
+        $frame2->appendChild($attr);
+        $attr = $html->createAttribute('style');
+        $attr->value = 'border: 0;';
+        $frame2->appendChild($attr);
+        $span2->appendChild($frame2);
+
+        $span3 = $html->createElement('span');
+        $attr = $html->createAttribute('style');
+        $attr->value = 'margin: 0; padding: 0; padding-right: 30px; width:220px; height:36px; border: 0;';
+        $span3->appendChild($attr);
+
+        $frame3 = $html->createElement('iframe');
+        $attr = $html->createAttribute('src');
+        $attr->value = '/mlite/content/radio.html';
+        $frame3->appendChild($attr);
+        $attr = $html->createAttribute('scrolling');
+        $attr->value = 'no';
+        $frame3->appendChild($attr);
+        $attr = $html->createAttribute('width');
+        $attr->value = '220';
+        $frame3->appendChild($attr);
+        $attr = $html->createAttribute('height');
+        $attr->value = '36';
+        $frame3->appendChild($attr);
+        $attr = $html->createAttribute('style');
+        $attr->value = 'border: 0;';
+        $frame3->appendChild($attr);
+        $span3->appendChild($frame3);
+
+	$span0->appendChild($span1);
+	$span0->appendChild($span2);
+	$span0->appendChild($span3);
+	$div->insertBefore($span0, $div->firstChild);
+    }
 }
 file_put_contents($modpath, $html->saveHTML());
 
