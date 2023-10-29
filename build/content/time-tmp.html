@@ -3,23 +3,56 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.29.4/moment.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment-timezone/0.5.43/moment-timezone.min.js"></script>
 <script type="text/javascript">
-var tmptime = 0; 
-function showtmp() {
-	var showtime = (tmptime - 1)*60;
-	var hh = parseInt(showtime / 3600) % 24;
-	var mm = '0' + parseInt(showtime / 60) % 60; 
-	mm = mm.substr(-2);
-	document.getElementById("clock-tmp").innerHTML = "TMP<br />"+hh+":"+mm;
-	tmptime++;
-}
+$(function() {
 
-function mytime() {
-	$.get( "/mlite/content/time-tmp.php", function( data ) {
-		tmptime=data; showtmp();
-		setInterval(showtmp, 10000);
-	});
-}
-</script></head><body onload="mytime();" style="color: #DAA520; background-color: transparent; margin: 0px; padding: 0px;">
+    function time() {
+        return Math.round(new Date().getTime()/1000);
+    }
+
+    function refreshTime() {
+        clearInterval(updateTime);
+        fetchTime();
+    }
+
+    function fetchTime() {
+        $.ajax({
+            dataType: 'json',
+            url: '/mlite/content/time-tmp.php',
+            success: function(data) {
+                if (!data.error) {
+                    var current = time();
+		    var fetch = data.fetch;
+                    gameTime = parseInt(data.time);
+
+                    gameTime += Math.floor((current - fetch) / 10);
+                    gameTimeUpdate = current;
+
+                    updateTime();
+                    setInterval(updateTime, 1000);
+                }
+            }
+        });
+    }
+
+    function updateTime() {
+        if ((time() - gameTimeUpdate) >= 10) {
+            gameTime += 1;
+            gameTimeUpdate = time();
+        }
+
+        var displayGameTime = (gameTime - 1) * 60; // Adjust for game difference
+        var hours = parseInt(displayGameTime / 3600) % 24;
+        var minutes = '0' + parseInt(displayGameTime / 60) % 60;
+
+        var time_div = document.getElementById('clock-tmp');
+        if (time_div) time_div.innerHTML = "TMP<br />"+ hours + ':' + minutes.substr(-2);
+    }
+
+    fetchTime();
+    setTimeout(refreshTime, 5000);
+    setInterval(refreshTime, 60000);
+});
+</script></head><body style="color: #DAA520; background-color: transparent; margin: 0px; padding: 0px;">
 <div id='clock-tmp' style="margin: 0px; font-weight: bold; white-space: pre;font-size: 16px; font-family: Helvetica, Tahoma, Arial, sans-serif;">&nbsp;</div>
 </body></html>
 
