@@ -39,6 +39,9 @@ if ($param=="install") {
             \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("Mail", "ExternalHostNameOfLocalSmtp", "mail.jino.ru");
             \Aurora\System\Api::GetModuleManager()->saveModuleConfigValue("Mail");
 
+            \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("Contacts", "AllowAddressBooksManagement", true);
+            \Aurora\System\Api::GetModuleManager()->saveModuleConfigValue("Contacts");
+
             \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("CoreWebclient", "HeaderModulesOrder", ["mail", "contacts"]);
             \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("CoreWebclient", "LanguageNames", ["English"=>"English", "Russian"=>"Russian"]);
             \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("CoreWebclient", "Theme", "MoonLite");
