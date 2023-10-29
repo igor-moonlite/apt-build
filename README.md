@@ -10,7 +10,7 @@ Among other things, the builder adjusts language constants of IFrame App module 
 
 The `content` directory is copied into the package AS IS. There is also `moonlite.php` script that is invoked when the package is installed via APT, it performs initial configuration (database setup, features tweaking, adding mailserver entry, placing "Powered By" text, etc.).
 
-The script creates .DEB package in `out` directory, while you can also run `zip.sh` to create .ZIP archive in the current dir.
+The script creates .DEB package in `out` directory. Additionally, you can run `zip.sh` to create .ZIP archive.
 
 2) `make.sh` creates initial directory structure for APT repository.
 3) `repo.sh` takes all the packages which are there in `out` directory and adds them to repository.
