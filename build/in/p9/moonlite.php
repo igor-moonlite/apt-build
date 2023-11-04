@@ -68,11 +68,11 @@ if ($param=="install") {
 
             \Aurora\System\Api::GetModuleDecorator('Core')->CreateTables();
             $bMailServerCreate = \Aurora\System\Api::GetModuleDecorator('Mail')->CreateServer(
-                "mail.jino.ru",
-                "mail.jino.ru",
+                "localhost",
+                "127.0.0.1",
                 143,
                 false,
-                "mail.jino.ru",
+                "127.0.0.1",
                 25,
                 false,
                 \Aurora\Modules\Mail\Enums\SmtpAuthType::UseUserCredentials,
