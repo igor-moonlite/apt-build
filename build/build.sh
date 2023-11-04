@@ -7,7 +7,11 @@ mkdir -p ./tmp/p9/data/usr/share/doc/moonlite
 mkdir -p ./tmp/p9/data/etc/moonlite
 cd /opt/moonlite/build/tmp/p9/data/usr/share/moonlite
 git clone https://github.com/igor-moonlite/moonlite .
+php /opt/moonlite/build/compose.php
+
 yes | php composer.phar install
+cp -r /opt/moonlite/build/hotfix/. /opt/moonlite/build/tmp/p9/data/usr/share/moonlite
+
 cd /opt/moonlite/build/tmp/p9/data/usr/share/moonlite
 npm install
 cd modules/AdminPanelWebclient/vue
