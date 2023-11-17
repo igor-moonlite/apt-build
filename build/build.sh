@@ -44,6 +44,7 @@ cp -r /opt/moonlite/build/content /opt/moonlite/build/tmp/p9/data/usr/share/moon
 cp -r  /opt/moonlite/build/tmp/p9/data/usr/share/moonlite/static/styles/themes/DeepForest /opt/moonlite/build/tmp/p9/data/usr/share/moonlite/static/styles/themes/MoonLite
 cp /opt/moonlite/build/content/background.jpg /opt/moonlite/build/tmp/p9/data/usr/share/moonlite/static/styles/themes/MoonLite/images/background.jpg
 cp /opt/moonlite/build/content/favicon.ico /opt/moonlite/build/tmp/p9/data/usr/share/moonlite/favicon.ico
+cp /opt/moonlite/build/content/favicon.ico /opt/moonlite/build/tmp/p9/data/usr/share/moonlite/adminpanel/favicon.ico
 cp /opt/moonlite/build/content/moonlite-128.png /opt/moonlite/build/tmp/p9/data/usr/share/moonlite/static/styles/images/logo_140x140.png
 
 chown www-data:www-data -R ./tmp/p9/data/usr/share/moonlite/
