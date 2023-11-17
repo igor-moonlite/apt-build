@@ -76,7 +76,9 @@ if ($param=="install") {
                 25,
                 false,
                 \Aurora\Modules\Mail\Enums\SmtpAuthType::UseUserCredentials,
-                "*"
+                "*",
+		true,
+		true
             );
         }
     }
