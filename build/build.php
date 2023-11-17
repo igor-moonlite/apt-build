@@ -139,15 +139,15 @@ for ($i = $links->length; --$i >= 0;) {
     $link = $links->item($i);
     if ($link->getAttribute('class') == 'item logo') {
         $attr = $html->createAttribute('style');
-        $attr->value = 'display: block; margin-left: 0px; margin-right: 20px;';
+        $attr->value = 'display: block; margin-left: 0px; margin-right: 0px;';
         $link->appendChild($attr);
 
         $img = $html->createElement('img');
         $attr = $html->createAttribute('src');
-        $attr->value = '/mlite/content/moon-line-30.png';
+        $attr->value = '/mlite/content/moon-30.png';
         $img->appendChild($attr);
         $attr = $html->createAttribute('style');
-        $attr->value = 'height: 30px;';
+        $attr->value = 'height: 30px; width: 30px;';
         $img->appendChild($attr);
         $link->appendChild($img);
     }
