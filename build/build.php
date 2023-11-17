@@ -139,7 +139,7 @@ for ($i = $links->length; --$i >= 0;) {
     $link = $links->item($i);
     if ($link->getAttribute('class') == 'item logo') {
         $attr = $html->createAttribute('style');
-        $attr->value = 'display: block; margin-left: 0px; margin-right: 0px;';
+        $attr->value = 'display: block; margin-left: 0px; margin-right: 20px;';
         $link->appendChild($attr);
 
         $img = $html->createElement('img');
