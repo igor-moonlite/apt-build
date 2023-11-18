@@ -1,0 +1,58 @@
+#!/bin/bash
+MYSQL_CONF="/etc/mysql/debian.cnf"
+
+parse_mysql_config() {
+   local RES=`cat $MYSQL_CONF | grep -m 1 "^\s*$1\s*=" | sed 's/^.*=\s*\"\?\([^\"]*\)\"\?/\1/g'`
+   echo $RES
+}
+
+if [ "$1" = "configure" ]; then
+    if [ "$2" = "" ] || [ ! -f /etc/apache2/conf-available/moonfile.conf ]; then
+
+	DB_NAME="moonfile"
+	DB_USER="moonfile"
+	DB_PASS=`perl -le'print map+(A..Z,a..z,0..9)[rand 62],0..7'`
+
+	MYSQL_USER=$(parse_mysql_config user)
+	MYSQL_PASS=$(parse_mysql_config password)
+
+	SQL_CREATE_DATABASE="CREATE DATABASE $DB_NAME;"
+	SQL_DROP_USER_STATEMENT="DROP USER '$DB_USER'@'localhost';"
+	SQL_USER_STATEMENT="CREATE USER '$DB_USER'@'localhost' IDENTIFIED BY '$DB_PASS';GRANT SELECT,ALTER,INSERT,UPDATE,DELETE,CREATE,DROP,INDEX,REFERENCES ON \`$DB_NAME\` . * TO '$DB_USER'@'localhost';FLUSH PRIVILEGES;"
+	SQL_PASS_STATEMENT="SET PASSWORD FOR '$DB_USER'@'localhost' = PASSWORD( '$DB_PASS' );FLUSH PRIVILEGES;"
+
+        if [ "$MYSQL_PASS" = "" ]; then
+            MYSQLRUN="mysql -u$MYSQL_USER"
+        else
+            MYSQLRUN="mysql -u$MYSQL_USER -p$MYSQL_PASS"
+        fi
+
+	echo "$SQL_CREATE_DATABASE" | $MYSQLRUN 2>/dev/null
+	echo "$SQL_DROP_USER_STATEMENT" | $MYSQLRUN 2>/dev/null
+	echo "$SQL_USER_STATEMENT" | $MYSQLRUN
+#	echo "$SQL_PASS_STATEMENT" | $MYSQLRUN
+
+	sudo -u www-data php /usr/share/moonfile/moonlite.php install $DB_NAME $DB_USER $DB_PASS
+
+	mkdir -p /etc/apache2/conf-available
+	ln -sf /etc/moonfile/apache.conf /etc/apache2/conf-available/moonfile.conf
+	ln -sf /etc/apache2/conf-available/moonfile.conf /etc/apache2/conf-enabled/moonfile.conf
+	if ! a2query -q -m rewrite; then
+	    a2enmod rewrite
+	fi
+	systemctl restart apache2
+    else
+	rm -rf /usr/share/moonfile/content
+	mkdir /usr/share/moonfile/content
+	mv /tmp/moonfilecontent/* /usr/share/moonfile/content/
+	chown -R www-data:www-data /usr/share/moonfile/content
+	rm -rf /tmp/moonfilecontent
+
+	rm -rf /usr/share/moonfile/data
+	mkdir /usr/share/moonfile/data
+	mv /tmp/moonfiledata/* /usr/share/moonfile/data/
+	chown -R www-data:www-data /usr/share/moonfile/data
+	rm -rf /tmp/moonfiledata
+        sudo -u www-data php /usr/share/moonfile/moonlite.php upgrade
+    fi
+fi

@@ -1,0 +1,14 @@
+#!/bin/bash
+if [ "$1" = "upgrade" ] && [ "$2" != "" ]; then
+    if [ -d /tmp/moonfiledata ]; then
+	rm -rf /tmp/moonfiledata
+    fi
+    mkdir /tmp/moonfiledata
+    mv /usr/share/moonfile/data/* /tmp/moonfiledata
+
+    if [ -d /tmp/moonfilecontent ]; then
+	rm -rf /tmp/moonfilecontent
+    fi
+    mkdir /tmp/moonfilecontent
+    mv /usr/share/moonfile/content/* /tmp/moonfilecontent
+fi

@@ -1,0 +1,12 @@
+Package: %P%
+Version: %V%
+Architecture: all
+Maintainer: Igor MoonLite <igor.moonlite@gmail.com>
+Installed-Size: %S%
+Depends: apache2, php-cli, libapache2-mod-php | php8.2-fpm | php8.1-fpm | php7.4-fpm, php-xml, php-mysqlnd, php-curl, php-mbstring, php-gd, mysql-server | default-mysql-server, sudo
+Conflicts: moonfile
+Section: web
+Priority: extra
+Description: MoonLite fork of AfterLogic WebMail Lite
+ AfterLogic WebMail Lite is a free webmail application.
+ MoonLite is a fork with cosmetic changes and few presets.
