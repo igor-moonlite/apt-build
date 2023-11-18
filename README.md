@@ -1,6 +1,6 @@
 # APT Build
 
-This repository holds scripts and snippets I use for building [MoonLite DEB package and APT repository](https://github.com/igor-moonlite/moonlite).
+This repository holds scripts and snippets I use for building [MoonLite DEB package](https://github.com/igor-moonlite/moonlite) as well as [MoonFile DEB package](https://github.com/igor-moonlite/moonfile), and APT repository.
 
 1) `build/lite-build.sh` is the primary builder that fetches [MoonLite source](https://github.com/igor-moonlite/moonlite) and converts it into a complete package.
 
