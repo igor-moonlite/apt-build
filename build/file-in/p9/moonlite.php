@@ -69,6 +69,9 @@ if ($param=="install") {
             \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("S3Filestorage", "Disabled", true);
             \Aurora\System\Api::GetModuleManager()->saveModuleConfigValue("S3Filestorage");
 
+            \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("OfficeDocumentEditor", "Disabled", true);
+            \Aurora\System\Api::GetModuleManager()->saveModuleConfigValue("OfficeDocumentEditor");
+
             \Aurora\System\Api::GetModuleDecorator('Core')->CreateTables();
             $bMailServerCreate = \Aurora\System\Api::GetModuleDecorator('Mail')->CreateServer(
                 "localhost",
