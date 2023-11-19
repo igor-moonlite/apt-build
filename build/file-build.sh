@@ -11,6 +11,7 @@ php /opt/moonlite/build/file-compose.php
 
 yes | php composer.phar install
 cp -r /opt/moonlite/build/hotfix/. /opt/moonlite/build/tmp/p9/data/usr/share/moonfile
+cp -r /opt/moonlite/build/override/. /opt/moonlite/build/tmp/p9/data/usr/share/moonfile
 
 cd /opt/moonlite/build/tmp/p9/data/usr/share/moonfile
 npm install

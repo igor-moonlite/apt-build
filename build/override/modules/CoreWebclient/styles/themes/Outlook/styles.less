@@ -1,0 +1,421 @@
+@font-face {
+	font-family: 'afterlogic-outlook';
+	src:url('../../themes/Outlook/fonts/afterlogic.eot');
+	src:url('../../themes/Outlook/fonts/afterlogic.eot?#iefix') format('embedded-opentype'),
+		url('../../themes/Outlook/fonts/afterlogic.svg#afterlogic') format('svg'),
+		url('../../themes/Outlook/fonts/afterlogic.woff') format('woff'),
+		url('../../themes/Outlook/fonts/afterlogic.ttf') format('truetype');
+	font-weight: normal;
+	font-style: normal;
+}
+
+.toolbar .content > .item > .icon:before,
+.toolbar .content .group > .item > .icon:before,
+.panel.left_panel .items_list .item > .title .icon:before,
+.messages_panel .items_list .item .attachments.has_attachments:before,
+.dropdown .dropdown_content .item .icon:before,
+.settings .folders.items_list .controls .button:before,
+.panels.settings .folders .items_list .item > .title .icon:before,
+.popup.calendar_popup .close:before,
+.panel.compose .attachments_panel .middle_bar .panel_top .uploader_button .icon:before {
+	font-family: 'afterlogic-outlook' !important;
+}
+
+@theme-tabs-height: 70px;
+@theme-common-link-color: #2491d0;
+@theme-common-link-hover-color: darken(@theme-common-link-color, 10%);
+@theme-animation-highlight-color-start: rgba(255, 255, 196, 1);
+@theme-animation-highlight-color-end: rgba(255, 255, 196, 0);
+
+@theme-use-text-fade: false;
+
+.theme-main-background() {
+	background: white;
+}
+
+.theme-tabsbar() {
+	@tabsbar-item-fontsize: 10.6pt;
+	@tabsbar-item-font-color: white;
+	@tabsbar-item-font-color-hover: @tabsbar-item-font-color;
+	@tabsbar-item-font-shadow: none;
+	// @tabsbar-item-top-offset: 24px;
+
+	background: #0075c8;
+
+	.dropdown_content {
+		border-radius: 0;
+	}
+
+	.theme-tabsbar-item() {
+		margin: 0px;
+		padding: 4px 10px;
+
+		html.rtl & {
+			margin-left: 0px;
+			margin-right: 6px;
+		}
+
+		&.expand .link {
+			color: #4f4844;
+		}
+	}
+
+	.theme-tabsbar-item-hover() {
+		color: @tabsbar-item-font-color-hover;
+
+		.text {
+			text-decoration: none;
+		}
+	}
+
+	.theme-current() {
+		color: @tabsbar-item-font-color-hover;
+		font-weight: bold;
+
+		&.expand .link {
+			color: #4f4844;
+		}
+	}
+
+	.theme-unseen-marker() {
+		background: inherit;
+		color: #ffffff;
+		top: -7px;
+	}
+}
+
+.theme-dropdown() {}
+
+.theme-panel() {
+	box-shadow: none !important;
+	height: auto !important;
+
+	&.left_panel {
+		border: solid 8px white;
+		border-right-width: 4px;
+
+		.panel_bottom {
+			height: 40px;
+			
+			.quota_visible & {
+				height: 52px;
+			}
+		}
+	}
+
+	&.center_panel {
+		border: solid 8px white;
+		border-left-width: 4px;
+		border-right-width: 0;
+
+		&:last-child {
+			border-right-width: 8px;
+		}
+
+		& > div {
+			border: solid 1px #e0e0e0;
+		}
+		
+		& + .gutter.gutter-horizontal {
+			border-right: solid 4px #f3f3f3;
+			border-left: solid 4px #f3f3f3;
+			margin-top: 8px;
+			margin-bottom: 8px;
+			height: calc(100% - 16px);
+		}
+	}
+
+	&.item_viewer {
+		border: solid 8px white;
+		border-left-width: 0;
+
+		& > div {
+			border: solid 1px #e0e0e0;
+		}
+
+		.panel_top {
+			background: #f3f3f3;
+		}
+	}
+
+	&.data {
+		border: solid 8px white;
+		border-left-width: 4px;
+		border-right-width: 2px;
+
+		& > div {
+			border: solid 1px #e0e0e0;
+		}
+	}
+}
+
+@theme-buttons-primary-background: #0075c8;
+@theme-buttons-secondary-background: #a7afb9;
+@theme-buttons-clear-color: #7f7f7f;
+
+.theme-big-single-button() {
+	border-radius: 0;
+	font-size: 13pt;
+	font-weight: normal;
+
+	&.enable:hover {}
+}
+
+@theme-add-account-button-color: #0075c8;
+
+@theme-toolbar-height: 55px;
+
+.theme-common-panel-toolbar() {
+	background: #f3f3f3;
+	border: none;
+	border-radius: 0;
+	border-bottom: 1px solid #e0e0e0;
+
+	.resizer {
+		height: @theme-toolbar-height;
+	}
+}
+
+.message_viewer .message_header {
+	background: #f3f3f3 !important;
+}
+
+@theme-toolbar-item-icon-color: #0075c8;
+
+.theme-toolbar-item() {
+	& > .icon {
+		color: @theme-toolbar-item-icon-color;
+		text-shadow: none;
+
+		&:hover {
+			color: darken(@theme-toolbar-item-icon-color, 10%);
+		}
+	}
+
+	.hint {
+		background: lighten(@theme-toolbar-item-icon-color, 10%);
+		color: #ffffff;
+	}
+
+	&:hover .hint {
+		background: lighten(@theme-toolbar-item-icon-color, 5%);
+	}
+}
+
+.theme-toolbar-item-hover() {}
+
+.theme-clear-left-panel() {
+	background: #f3f3f3;
+
+	.items_list .item > .title {
+		color: rgba(255,255,255,0.4);
+	}
+	.items_list .item.canSelect > .title {
+		color: #686764;
+		text-shadow: none;
+
+		&:hover {
+			color: #535c62;
+		}
+	}
+	.items_list.collapsible .item.accordion.canNotSelect .collapse_handler {
+		color: #686764;
+		text-shadow: none;
+		&:hover {
+			color: #686764;
+		}
+	}
+}
+.theme-left-panel-item-count() {}
+
+.theme-left-panel-item-count-total() {}
+
+.theme-left-panel-item-selected-count-total() {}
+
+.theme-left-panel-item-selected-count() {}
+
+.theme-left-panel-item-count-hover() {}
+
+.theme-left-panel-item-unseen-count-hover() {}
+
+@theme-list-item-bg: #ffffff;
+@theme-list-selected-item-bg: #eee;
+@theme-list-selected-item-color: #4f4844;
+@theme-list-checked-item-bg: #f1f8de;
+@theme-list-unseen-item-bg: inherit;
+
+@theme-group-style-item-bg: #ece9e0;
+@theme-group-style-selected-item-bg-color: #ddd;
+@theme-group-style-selected-item-bg: #ddd;
+@theme-group-style-item-font-size: 11pt;
+
+.theme-group-style-selected-item() {
+	color: #4f4844 !important;
+	text-shadow: none;
+}
+
+.theme-address-capsule() {
+	background-color: #e5eff7;
+	color: #5b9bcd;
+	border: none;
+
+	.ficon {
+		color: #5b9bcd;
+	}
+
+	&.inputosaurus-selected {
+		background: #5b9bcd;
+		color: #ffffff;
+
+		.ficon {
+			color: #ffffff;
+		}
+	}
+}
+
+.theme-address-capsule-notfound() {
+	background: #ffffff;
+	border: solid 1px #e5eff7;
+	color: #5b9bcd;
+}
+
+.theme-tooltip() {
+	@tooltip-color: #424e54;
+}
+
+@theme-volumer-container-background: fade(#000, 20%);
+@theme-volumer-container-border: 1px solid #2D476E;
+@theme-volumer-container-border-radius: 0;
+@theme-volumer-used-background: #668eb8;
+@theme-volumer-text: #3ba7b6;
+
+@theme-attachment-action-link-color: #4477bb;
+
+@theme-contact-viewer-mailto-link-color: #3983c8;
+@theme-contacts-panel-item-selected-me-color: #519ce2;
+@theme-contacts-panel-item-data-email-color: #519ce2;
+
+@theme-fields-dates-editable-color: #4477bb;
+@theme-fields-dates-editable-hover-color: #c74747;
+
+@theme-settings-filter-link-color: #4477bb;
+
+@theme-quick-reply-bg: #ffffff;
+@theme-quick-reply-textarea-border: none;
+
+@theme-center-top-panel-bg: #f1f1f1;
+@theme-center-bottom-panel-bg: #ffffff;
+
+@theme-section-title-color: #ffffff;
+@theme-section-title-text-shadow: none;
+
+.theme-thread-pin() {
+	@thread-pin-background: #ffffff;
+	@thread-pin-color: #a0a0a0;
+	@thread-pin-border: 1px solid #a0a0a0;
+
+	@thread-pin-selected-background: @theme-list-selected-item-bg;
+	@thread-pin-selected-color: #ffffff;
+	@thread-pin-selected-border: 1px solid #ffffff;
+
+	@thread-pin-unread-background: #a0a0a0;
+	@thread-pin-unread-color: #ffffff;
+	@thread-pin-unread-border: 1px solid #a0a0a0;
+
+	@thread-pin-unread-selected-background: #ffffff;
+	@thread-pin-unread-selected-color: @theme-list-selected-item-bg;
+	@thread-pin-unread-selected-border: @thread-pin-selected-border;
+}
+
+.theme-message-toolbar-item() {};
+
+.theme-layout-horiz-split() {};
+
+@theme-mail-message-header-background: #ffffff;
+@theme-mail-viewer-notice-background: #ffffc5;
+@theme-mail-viewer-notice-link-color: #7e9baf;
+@theme-mail-viewer-appointment-background: #dff6eb;
+@theme-mail-viewer-appointment-border-bottom: 1px solid darken(@theme-mail-viewer-appointment-background, 10%);
+@theme-mail-compose-showcc-link-color: #4477bb;
+@theme-mail-compose-showcc-link-hover-color: #24579b;
+@theme-mail-compose-minimized-background: #43d0bf;
+
+.search_block > .input,
+.buttons .button,
+.dropdown .dropdown_content {
+	border-radius: 0 !important;
+	text-shadow: none !important;
+}
+
+.attachments .item .item_content,
+.contact_card .dropdown_content,
+.contact_card .dropdown_content_mail {
+	border-radius: 0 !important;
+	box-shadow: none !important;
+	border: 1px solid #ddd !important;
+}
+
+.dropdown .dropdown_content .item .icon {
+	color: #0075c8 !important;
+}
+
+.fields .input,
+span.address_capsule, li.address_capsule,
+.contact_data_groups,
+.panel.contact_viewer .decor {
+	border-radius: 0 !important;
+}
+
+span.address_capsule, li.address_capsule {
+	background-color: inherit !important;
+}
+
+span.address_capsule:not(.found_contact) {
+	border: none !important;
+}
+
+.input {
+	box-shadow: none !important;
+}
+
+.items_list .section_title {
+	color: #4f4844 !important;
+}
+
+.panel.contacts_panel .item.selected .data .email {
+	color: #519ce2 !important;
+}
+
+.panel.contacts_panel .item.selected .data .name {
+	color: inherit !important;
+}
+
+.panel.contacts_panel .item.selected.noname .data .name,
+.panel.contacts_panel .item.selected.noemail .data .email {
+	color: #888888 !important;
+}
+
+.login_panel .header .icon:before {
+	color: #0075c8 !important;
+	text-shadow: 0 1px 0 #ffffff, 0 -1px 0 #005795, -1px -1px #005795 !important;
+}
+
+.login_panel .row:first-child {
+	box-shadow: none !important;
+}
+
+.login_panel.login .row.login,
+.login_panel .row:last-child,
+.login_panel .social .button {
+	border-radius: 0 !important;
+}
+
+.LoginLayout .languages.demo {
+	background: none !important;
+	border-radius: 0 !important;
+
+	.item.selected .item_content {
+		background: #0075c8 !important;
+		border-radius: 0 !important;
+	}
+}

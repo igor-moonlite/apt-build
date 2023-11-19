@@ -14,11 +14,13 @@ if ($param=="install") {
             $oSettings->SetConf('DBName', $argv[2]);
             $oSettings->SetConf('DBLogin', $argv[3]);
             $oSettings->SetConf('DBPassword', $argv[4]);
+            $oSettings->SetConf('XFrameOptions', '');
             $result = $oSettings->Save();
 
             \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("Core", "SiteName", "MoonLite");
             \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("Core", "ProductName", "MoonFile");
             \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("Core", "EnableFailedLoginBlock", false);
+            \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("Core", "AllowPostLogin", true);
             \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("Core", "AllowGroups", false);
             \Aurora\System\Api::GetModuleManager()->saveModuleConfigValue("Core");
 
@@ -45,7 +47,7 @@ if ($param=="install") {
             \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("CoreWebclient", "HeaderModulesOrder", ["mail", "contacts", "iframeapp", "files"]);
             \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("CoreWebclient", "LanguageNames", ["English"=>"English", "Russian"=>"Russian"]);
             \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("CoreWebclient", "Theme", "MoonLite");
-            \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("CoreWebclient", "ThemeList", ["MoonLite","Default","DefaultDark","DeepForest","Funny","Sand"]);
+            \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("CoreWebclient", "ThemeList", ["MoonLite","Default","DefaultDark","DeepForest","Outlook","Funny","Sand"]);
             \Aurora\System\Api::GetModuleManager()->setModuleConfigValue("CoreWebclient", "AllowDesktopNotifications", true);
             \Aurora\System\Api::GetModuleManager()->saveModuleConfigValue("CoreWebclient");
 
