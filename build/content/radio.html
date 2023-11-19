@@ -1,9 +1,43 @@
 <html><head><title>R A D I O</title>
+<script>
+var selstat=-1; var stations = {}; var statlen=0;
+stations[0] = {"name":"MoonCats Radio", "url":"https://misato.ru-hoster.com:8048/stream"};
+stations[1] = {"name":"AutoRadio", "url":"https://srv12.gpmradio.ru:8443/stream/reg/mp3/128/region_avto_tz_0"};
+stations[2] = {"name":"80s Disco", "url":"https://pub0302.101.ru:8000/stream/pro/aac/64/1"};
+stations[3] = {"name":"Psyndora Psytranse", "url":"https://cast.magicstreams.gr:9111/stream"};
+
+function station1() {
+    statlen = Object.keys(stations).length;
+    selstat=0; stationplay(selstat, 0);
+}
+function stationprev() {
+    selstat--;
+    if (selstat<0) selstat = statlen - 1;
+    stationplay(selstat, 1);
+}
+
+function stationnext() {
+    selstat++;
+    if (selstat>=statlen) selstat = 0;
+    stationplay(selstat, 1);
+}
+
+function stationplay(num, autos) {
+    document.getElementById("radioname").innerHTML = stations[num]["name"];
+    document.getElementById("radioaddr").src = stations[num]["url"];
+    document.getElementById("radioaddr").load();
+    if (autos) document.getElementById("radioaddr").play();
+}
+</script>
 <script src="https://cdn.plyr.io/2.0.18/plyr.js"></script>
 <link rel="stylesheet" href="https://cdn.plyr.io/2.0.18/plyr.css">
-</head><body style="margin: 0px; padding: 0px;">
-<audio style="height: 36px; width: 220px;" controls>
-<source src="https://misato.ru-hoster.com:8048/stream" type="audio/mp3">
-</audio>
+</head><body style="margin: 0px; padding: 0px;" onload="station1()">
+<table cellpadding="0" cellspacing="0" border="0"><tr>
+<td style="height: 16px; width: 16px; background-color: transparent;">&nbsp;</td>
+<td style="height: 16px; width: 16px; background-color: white; color: #000000; text-align: center; font-size: 14px; cursor: pointer;" onclick="stationprev();" onfocus="this.blur();">&#9664;</td>
+<td style="height: 16px; width: 156px; background-color: white; color: #000000; text-align: center; font-weight: 400; font-size: 13px; font-family: Helvetica, Tahoma, Arial, sans-serif; white-space: nowrap; max-width: 188px; overflow: hidden; text-overflow: ellipsis;" id="radioname">&nbsp;</td>
+<td style="height: 16px; width: 16px; background-color: white; color: #000000; text-align: center; font-size: 14px; cursor: pointer;" onclick="stationnext();" onfocus="this.blur();">&#9654;</td>
+<td style="height: 16px; width: 16px; background-color: transparent;">&nbsp;</td>
+</tr><tr><td colspan="5" style="height: 18px; width: 220px;"><audio style="height: 18px; width: 220px;" controls id="radioaddr" src=""></audio></td></tr></table>
 <script>plyr.setup({ "controls": "["play","mute","volume"]", "volume": 5 });</script>
 </body></html>
