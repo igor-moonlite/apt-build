@@ -1,10 +1,119 @@
 <html><head><title>R A D I O</title>
 <script>
-var selstat=-1; var stations = {}; var statlen=0;
-stations[0] = {"name":"MoonCats Radio", "url":"https://misato.ru-hoster.com:8048/stream"};
-stations[1] = {"name":"AutoRadio", "url":"https://srv12.gpmradio.ru:8443/stream/reg/mp3/128/region_avto_tz_0"};
-stations[2] = {"name":"80s Disco", "url":"https://pub0302.101.ru:8000/stream/pro/aac/64/1"};
-stations[3] = {"name":"Psyndora Psytranse", "url":"https://cast.magicstreams.gr:9111/stream"};
+var selstat=-1; var stations = {}; var statlen=0; i=0;
+stations[i++] = {"name":"MoonCats Radio", "url":"https://misato.ru-hoster.com:8048/stream"};
+stations[i++] = {"name":"AutoRadio", "url":"https://srv12.gpmradio.ru:8443/stream/reg/mp3/128/region_avto_tz_0"};
+stations[i++] = {"name":"80s Disco", "url":"https://pub0302.101.ru:8000/stream/pro/aac/64/1"};
+stations[i++] = {"name":"TruckersFM", "url":"https://radio.truckers.fm/"};
+stations[i++] = {"name":"SimLiveRadio", "url":"https://stream.laut.fm/simliveradio"};
+stations[i++] = {"name":"simulator1", "url":"https://stream.laut.fm/simulator1"};
+stations[i++] = {"name":"TechLiveRadio", "url":"https://stream.laut.fm/techliveradio"};
+stations[i++] = {"name":"AutoLife Azerbaijan", "url":"https://radio.autoliferadio.com:8090/radio"};
+stations[i++] = {"name":"MNM", "url":"https://icecast.vrtcdn.be/mnm-high.mp3"};
+stations[i++] = {"name":"NPO Radio 1", "url":"https://icecast.omroep.nl/radio1-bb-mp3"};
+stations[i++] = {"name":"VRT Radio 2", "url":"https://vrt.streamabc.net/vrt-radio2antwerpen-mp3-128-8732799"};
+stations[i++] = {"name":"Radio Beat", "url":"https://icecast5.play.cz/radiobeat128.mp3"};
+stations[i++] = {"name":"Radio 100", "url":"https://live-bauerdk.sharp-stream.com/radio100_dk_mp3"};
+stations[i++] = {"name":"Skyrock", "url":"https://icecast.skyrock.net/s/natio_mp3_128k"};
+stations[i++] = {"name":"Dubplate.fm - Drum&Bass", "url":"https://sc2.dubplate.fm:5000/DnB/192"};
+stations[i++] = {"name":"Dubplate.fm - Dubstep", "url":"https://sc2.dubplate.fm:5000/dubstep/192"};
+stations[i++] = {"name":"Dubplate.fm - Urban Elec", "url":"https://sc2.dubplate.fm:5000/Electro/192"};
+stations[i++] = {"name":"House Heads UK", "url":"https://s36.myradiostream.com:13028/;listen.mp3"};
+stations[i++] = {"name":"Radio 538", "url":"https://playerservices.streamtheworld.com/api/livestream-redirect/RADIO538.mp3"};
+stations[i++] = {"name":"100% NL", "url":"https://stream.100p.nl/100pctnl.mp3"};
+stations[i++] = {"name":"Radio NL", "url":"https://stream.radionl.fm/rnlhoogeveen"};
+stations[i++] = {"name":"NRK P1 Hordaland", "url":"https://lyd.nrk.no/nrk_radio_p1_hordaland_mp3_h"};
+stations[i++] = {"name":"Retro Radio", "url":"https://streammp3.retro-radio.dk/retro-mp3"};
+stations[i++] = {"name":"Austrian Rock Radio", "url":"https://live.antenne.at/arr"};
+stations[i++] = {"name":"Arabel FM", "url":"https://arabelfm.ice.infomaniak.ch/arabelprodcastfm.mp3"};
+stations[i++] = {"name":"Radio Contact", "url":"https://radiocontact.ice.infomaniak.ch/radiocontact-mp3-192.mp3"};
+stations[i++] = {"name":"Radio Orbit", "url":"https://s1.slotex.pl:7390/stream/1/"};
+stations[i++] = {"name":"Fun Radio", "url":"https://stream.funradio.sk:8000/funpgm256.mp3"};
+stations[i++] = {"name":"Radio Viva", "url":"https://stream.sepia.sk:8000/viva320.mp3"};
+stations[i++] = {"name":"RAI Radio 4 Light", "url":"https://icestreaming.rai.it/4.mp3"};
+stations[i++] = {"name":"Radio Dresden", "url":"https://hermes.bcs-systems.de/radio-dresden_simulcast_192k_fb_mp3"};
+stations[i++] = {"name":"Hit Radio FFH - Rock", "url":"https://mp3.ffh.de/ffhchannels/hqrock.mp3"};
+stations[i++] = {"name":"Smooth Radio", "url":"https://media-ice.musicradio.com/SmoothLondonMP3"};
+stations[i++] = {"name":"RauteMusik.FM - Rock", "url":"https://rock-high.rautemusik.fm/Musik.Rock"};
+stations[i++] = {"name":"Direct FM", "url":"https://directfm.ice.infomaniak.ch/directfm-128.mp3"};
+stations[i++] = {"name":"Rock Zone", "url":"https://icecast5.play.cz/rockzone128.mp3"};
+stations[i++] = {"name":"Top Music - Strasbourg", "url":"https://str0.creacast.com/topmusic1"};
+stations[i++] = {"name":"Die Neue 107.7", "url":"https://dieneue1077.cast.addradio.de/dieneue1077/rock/high/stream.mp3"};
+stations[i++] = {"name":"NPO 3 FM", "url":"https://icecast.omroep.nl/3fm-bb-mp3"};
+stations[i++] = {"name":"Radio Ultra", "url":"https://nashe1.hostingradio.ru/ultra-128.mp3"};
+stations[i++] = {"name":"Hitradio - Faktor", "url":"https://ice.abradio.cz/faktor128.mp3"};
+stations[i++] = {"name":"Fajn Radio", "url":"https://ice.abradio.cz/fajn128.mp3"};
+stations[i++] = {"name":"CRo 1 Radiozurnal", "url":"https://icecast8.play.cz/cro1-128.mp3"};
+stations[i++] = {"name":"Love FM", "url":"https://ice07.fluidstream.net/lovefm.mp3"};
+stations[i++] = {"name":"NRK Alltid Nyheter", "url":"https://lyd.nrk.no/nrk_radio_alltid_nyheter_mp3_h"};
+stations[i++] = {"name":"NRK P1", "url":"https://lyd.nrk.no/nrk_radio_p1_ostlandssendingen_mp3_h"};
+stations[i++] = {"name":"NRK P2", "url":"https://lyd.nrk.no/nrk_radio_p2_mp3_h"};
+stations[i++] = {"name":"NRK P3", "url":"https://lyd.nrk.no/nrk_radio_mp3_mp3_h"};
+stations[i++] = {"name":"Radio Rock", "url":"https://edge-bauerno-03-gos2.sharp-stream.com/radiorock_no_mp3?"};
+stations[i++] = {"name":"The Voice", "url":"https://live-bauerdk.sharp-stream.com/thevoice_dk_mp3"};
+stations[i++] = {"name":"Radio Bloodstream", "url":"https://uk1.internet-radio.com/proxy/bloodstream?mp=/stream"};
+stations[i++] = {"name":"Radio Diddeleng", "url":"https://radiodudelange.ice.infomaniak.ch/radiodudelange-128.mp3"};
+stations[i++] = {"name":"Country Rocks Radio", "url":"https://stream.dbmedia.se/crrMP3"};
+stations[i++] = {"name":"ERR Raadio 2", "url":"https://icecast.err.ee/raadio2.mp3"};
+stations[i++] = {"name":"Raadio 4", "url":"https://icecast.err.ee/raadio4madal.mp3"};
+stations[i++] = {"name":"Smooth Chill", "url":"https://media-sov.musicradio.com/ChillMP3"};
+stations[i++] = {"name":"Easy FM", "url":"https://netradio.ziniur.lt/easyfm.mp3"};
+stations[i++] = {"name":"Russian Songs", "url":"https://listen.rusongs.ru:8005/ru-mp3-128"};
+stations[i++] = {"name":"TruckStopRadio", "url":"https://oreo.truckstopradio.co.uk/radio/8000/radio.mp3"};
+stations[i++] = {"name":"Pirate Rock", "url":"https://stream.piraterock.se:8101/webradio"};
+stations[i++] = {"name":"Vinyl FM", "url":"https://tx-bauerse.sharp-stream.com/http_live.php?i=vinylfm_instream_se_mp3"};
+stations[i++] = {"name":"NRJ Sverige", "url":"https://edge-bauerse-03-gos2.sharp-stream.com/nrj_instreamtest_se_mp3?"};
+stations[i++] = {"name":"Rock Radio", "url":"https://radiostream.pl/tuba8-1.mp3"};
+stations[i++] = {"name":"Radio PLUS", "url":"https://ic2.smcdn.pl/4100-1.mp3"};
+stations[i++] = {"name":"MUZO.FM", "url":"https://n11a-eu.rcs.revma.com/1nnezw8qz7zuv"};
+stations[i++] = {"name":"VOX FM", "url":"https://ic2.smcdn.pl/3990-1.mp3"};
+stations[i++] = {"name":"ESKA Warszawa", "url":"https://ic1.smcdn.pl/2380-1.mp3"};
+stations[i++] = {"name":"Radio Zet Dance", "url":"https://zt05.cdn.eurozet.pl/ZETDAN.mp3?redirected=05/"};
+stations[i++] = {"name":"Radio Zet", "url":"https://n-11-21.dcs.redcdn.pl/sc/o2/Eurozet/live/audio.livx?audio=5"};
+stations[i++] = {"name":"RMF 2000", "url":"https://rs6-krk2.rmfstream.pl/rmf_2000"};
+stations[i++] = {"name":"RMF 10s", "url":"https://rs6-krk2.rmfstream.pl/rmf_2010"};
+stations[i++] = {"name":"Radio Bollerwagen", "url":"https://stream.ffn.de/radiobollerwagen/mp3-192"};
+stations[i++] = {"name":"Antenne Bayern", "url":"https://s6-webradio.antenne.de/antenne"};
+stations[i++] = {"name":"SWR 3", "url":"https://dispatcher.rndfnk.com/swr/swr3/live/mp3/128/stream.mp3"};
+stations[i++] = {"name":"Deutschlandfunk", "url":"https://st01.sslstream.dlf.de/dlf/01/128/mp3/stream.mp3?aggregator=onlineradiobox-com"};
+stations[i++] = {"name":"WDR 1LIVE", "url":"https://wdr-1live-live.icecastssl.wdr.de/wdr/1live/live/mp3/128/stream.mp3?aggregator=onlineradiobox-com"};
+stations[i++] = {"name":"80s80s", "url":"https://streams.80s80s.de/web/mp3-192"};
+stations[i++] = {"name":"Radio Paloma", "url":"https://stream.silvacast.com/RPLive/mp3-128/onlineradiobox_net/"};
+stations[i++] = {"name":"Sunshine Live", "url":"https://stream.sunshine-live.de/hq/mp3-192"};
+stations[i++] = {"name":"90s90s", "url":"https://streams.90s90s.de/pop/mp3-192"};
+stations[i++] = {"name":"N-Joy", "url":"https://icecast.ndr.de/ndr/njoy/live/mp3/128/stream.mp3?aggregator=onlineradiobox-com"};
+stations[i++] = {"name":"BR24", "url":"https://dispatcher.rndfnk.com/br/br24/live/mp3/mid?aggregator=onlineradiobox-com"};
+stations[i++] = {"name":"Radio FFN", "url":"https://stream.ffn.de/ffn/mp3-192/stream.mp3"};
+stations[i++] = {"name":"Radio Zet Party", "url":"https://zt04.cdn.eurozet.pl/ZETPAR.mp3"};
+stations[i++] = {"name":"Radio 357", "url":"https://stream.rcs.revma.com/an1ugyygzk8uv"};
+stations[i++] = {"name":"Radio Nowy Swiat", "url":"https://stream.rcs.revma.com/ypqt40u0x1zuv"};
+stations[i++] = {"name":"Radio Aktual", "url":"https://live.radio.si/Aktual"};
+stations[i++] = {"name":"Best FM", "url":"https://live.radio.si/BestFM"};
+stations[i++] = {"name":"Radio Capris", "url":"https://stream.exit.si/live"};
+stations[i++] = {"name":"Radio Salomon", "url":"https://live.radio.si/Salomon"};
+stations[i++] = {"name":"HRT - HR 1", "url":"https://25593.live.streamtheworld.com/PROGRAM1.mp3?dist=onlineradiobox"};
+stations[i++] = {"name":"Super Radio", "url":"https://mcp1.mydataknox.com:8010/stream"};
+stations[i++] = {"name":"Cool Radio", "url":"https://live.coolradio.rs/cool128"};
+stations[i++] = {"name":"Radio Karolina", "url":"https://streaming.karolina.rs/karolina.mp3"};
+stations[i++] = {"name":"HIT FM", "url":"https://streaming.hitfm.rs/hit.mp3"};
+stations[i++] = {"name":"Radio Jat", "url":"https://streaming.radiojat.rs/radiojat.mp3"};
+stations[i++] = {"name":"Radio WTF", "url":"https://live.wtfradio.rs/wtfradio.mp3"};
+stations[i++] = {"name":"DRS", "url":"https://eu2.fastcast4u.com/proxy/mic0?mp=/1"};
+stations[i++] = {"name":"Elmag radio", "url":"https://radio.elmag.me/elmag.mp3"};
+stations[i++] = {"name":"Radio Club FM Kosove", "url":"https://cp1.sednastream.com/proxy/clubfmkosova?mp=/stream"};
+stations[i++] = {"name":"Radio Kosova e Lire", "url":"https://radiokos.radioca.st/;"};
+stations[i++] = {"name":"Radio Prishtina", "url":"https://stream.radio.co/sbe73908d2/listen"};
+stations[i++] = {"name":"Radio Zeri", "url":"https://radiozeri.radioca.st/stream"};
+stations[i++] = {"name":"Radio Fontana", "url":"https://live.radiostreaming.al:8010/;stream.mp3"};
+stations[i++] = {"name":"Rock Fans Kosova", "url":"https://stream-153.zeno.fm/ybwz7k5gzchvv?zs=xzV7CDObQg2InZQNn6KWYQ "};
+stations[i++] = {"name":"Radio Kavadarci", "url":"https://stream-162.zeno.fm/a5ffd4skgg0uv?zs=Vc8ZjmmJR9aV90sbz7FyaA"};
+stations[i++] = {"name":"Radio Bubamara", "url":"https://stream.bubamara.com.mk/live-128.aac"};
+stations[i++] = {"name":"Love Radio Digital", "url":"https://radio.albanialoveradio.al/stream"};
+stations[i++] = {"name":"Radio Shqip", "url":"https://cp1.sednastream.com/proxy/radioshqip?mp=/stream"};
+stations[i++] = {"name":"Club FM SQ", "url":"https://cp1.sednastream.com/proxy/clubfm?mp=/stream"};
+stations[i++] = {"name":"Play Radio Albania", "url":"https://n11.radiojar.com/sx7zrht0pg0uv?rj-ttl=5&rj-tok=AAABiY1GtikAlekzhuLqGyv-RA"};
+stations[i++] = {"name":"Radio DJ", "url":"https://antena.albaniadigitalradio.al/radiodj"};
+stations[i++] = {"name":"Psyndora Psytranse", "url":"https://cast.magicstreams.gr:9111/stream"};
 
 function station1() {
     statlen = Object.keys(stations).length;
@@ -38,6 +147,6 @@ function stationplay(num, autos) {
 <td style="height: 16px; width: 156px; background-color: white; color: #000000; text-align: center; font-weight: 400; font-size: 13px; font-family: Helvetica, Tahoma, Arial, sans-serif; white-space: nowrap; max-width: 188px; overflow: hidden; text-overflow: ellipsis;" id="radioname">&nbsp;</td>
 <td style="height: 16px; width: 16px; background-color: white; color: #000000; text-align: center; font-size: 14px; cursor: pointer;" onclick="stationnext();" onfocus="this.blur();">&#9654;</td>
 <td style="height: 16px; width: 16px; background-color: transparent;">&nbsp;</td>
-</tr><tr><td colspan="5" style="height: 18px; width: 220px;"><audio style="height: 18px; width: 220px;" controls id="radioaddr" src=""></audio></td></tr></table>
+</tr><tr><td colspan="5" style="height: 18px; width: 220px;"><audio style="height: 18px; width: 220px;" controls id="radioaddr" src=""></audio></td></tr></table><!--br><textarea cols=80 rows=20></textarea-->
 <script>plyr.setup({ "controls": "["play","mute","volume"]", "volume": 5 });</script>
 </body></html>
